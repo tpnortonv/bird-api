@@ -1,6 +1,11 @@
+// Load environment variables from .env file
+require('dotenv').config();
+
 const express = require('express');
 const app = express();
-const port = 3000;
+
+// Use the port defined in .env or default to 3000 if not set
+const port = process.env.PORT || 3000;
 
 // Sample data for 10 bird types
 const birds = [
@@ -86,10 +91,12 @@ const birds = [
   }
 ];
 
+// Create a route to serve the birds data
 app.get('/api/birds', (req, res) => {
   res.json(birds);
 });
 
+// Start the server using the port from .env or default to 3000
 app.listen(port, () => {
   console.log(`Birds API running at http://localhost:${port}/api/birds`);
 });
