@@ -96,9 +96,9 @@ app.get('/api/birds', (req, res) => {
   res.json(birds);
 });
 
-// Add a route for the root path
+// Serve the bird data at the root path
 app.get('/', (req, res) => {
-  res.send('Welcome to the Birds API!');
+  res.json(birds);
 });
 
 // Start the server using the port from .env or default to 3000
